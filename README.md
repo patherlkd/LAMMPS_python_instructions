@@ -46,4 +46,6 @@ make -j 4 mode=shared ${machine}
                                                                                                                                              
 make install-python
 
-7. Run a test lammps python from one of the examples located in lammps-develop/python/examples or any examples given to you (e.g. as attached in this github).
+7. Run a test lammps python from one of the examples located in lammps-develop/python/examples or any examples given to you (e.g. as attached in this github). E.g.
+
+python<version> example-lammps-script-3D.py
