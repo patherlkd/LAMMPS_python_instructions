@@ -1,7 +1,7 @@
 # LAMMPS_python_instructions
-Simple instructions of how I downloaded and installed python interface for LAMMPS.
+Simple instructions of how I downloaded and installed python interface for LAMMPS (tested on Linux, should be fine for MAC, untested on WINDOWS)
 
-### RELEVANT FOR MYRIAD, change as needed
+### Follow but change as needed
 
 0. Ensure you have wget
 
@@ -23,9 +23,9 @@ unzip develop.zip -d ./lammps-develop-python/
 
 cd lammps-develop-python/lammps-develop/src/
 
-5. include python library (exact path for Python.h) in the c compiler for lammps. open src/MAKE/Makefile.mpi. Change the CCFLAGS line like so: 
+5. include python library (exact path for Python.h) in the c compiler for lammps. open src/MAKE/Makefile.mpi. Change the CCFLAGS line to something like (you will need to find the <path-to-Python.h> and also find the right <version> of python... hopefully >3): 
 
-CCFLAGS =       -g -O3 -std=c++11 -I/lustre/shared/ucl/apps/python/3.11.4/gnu-4.9.2/include/python3.11 -lpython3.11
+CCFLAGS =       -g -O3 -std=c++11 -I<path-to-Python.h> -lpython<version>
 
 6. make lammps in shared mode with the python package (still within src/ folder)
 
@@ -46,4 +46,4 @@ make -j 4 mode=shared ${machine}
                                                                                                                                              
 make install-python
 
-7. Run a test lammps python from one of the examples located in lammps-develop/python/examples or any examples given to you.
+7. Run a test lammps python from one of the examples located in lammps-develop/python/examples or any examples given to you (e.g. as attached in this github).
