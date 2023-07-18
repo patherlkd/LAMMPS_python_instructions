@@ -1,0 +1,43 @@
+print " ======== Particle simulation example ========"                                                                                                       
+print " Activated by example-lammps-script-3D.py "                                                                                                           
+print " variables encased in % % get replaced by the python script "                                                                                         
+print " ===================================================="                                                                                                
+                                                                                                                                                             
+                                                                                                                                                             
+units lj                                                                                                                                                     
+atom_style atomic                                                                                                                                            
+                                                                                                                                                             
+atom_modify map yes                                                                                                                                          
+                                                                                                                                                             
+boundary p p p                                                                                                                                               
+region box block %XLO% %XHI% %YLO% %YHI% %ZLO% %ZHI% side in                                                                                                 
+                                                                                                                                                             
+create_box 1 box                                                                                                                                             
+                                                                                                                                                             
+#lattice sq %DENS%                                                                                                                                           
+                                                                                                                                                             
+## create atoms randomly (no overlaps)                                                                                                                       
+create_atoms 1 random %NATOMS% %SEED3% box                                                                                                                   
+                                                                                                                                                             
+# computer number of atoms                                                                                                                                   
+variable natoms equal count(all)                                                                                                                             
+print "Natoms= $(v_natoms)"                                                                                                                                  
+                                                                                                                                                             
+mass 1 1.                                                                                                                                                    
+                                                                                                                                                             
+## Weeks-Chandler-Anderson potential (repulsion only)                                                                                                        
+pair_style lj/smooth/linear %CUTOFF%                                                                                                                         
+pair_coeff * * %EPSILON% %SIGMA%                                                                                                                             
+                                                                                                                                                             
+dump 1 all xyz 10 %WD%%SIMLABEL%.xyz                                                                                                                         
+                                                                                                                                                             
+comm_style tiled                                                                                                                                             
+comm_modify cutoff 1.5                                                                                                                                       
+neighbor 0.3 bin                                                                                                                                             
+neigh_modify every 1 delay 2 check yes                                                                                                                       
+                                                                                                                                                             
+velocity all create 1 %SEED2% dist gaussian                                                                                                                  
+                                                                                                                                                             
+fix 0 all nve                                                                                                                                                
+fix 1 all langevin %TEMP% %TEMP% %DAMP% %SEED1%                                                                                                              
+fix 2 all balance 1000 1.05 rcb 
