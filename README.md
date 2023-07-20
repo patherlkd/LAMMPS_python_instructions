@@ -15,6 +15,7 @@ scp develop.zip <hpc-address>:/home/<username>
 ```
 3. login to your HPC and unzip the file in a directory called lammps/
 ```
+mkdir lammps
 cd lammps/
 mkdir lammps-develop-python
 unzip develop.zip -d ./lammps-develop-python/
