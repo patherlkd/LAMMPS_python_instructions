@@ -25,7 +25,13 @@ unzip develop.zip -d ./lammps-develop-python/
 ```
 cd lammps-develop-python/lammps-develop/src/
 ```
-5. include python library (exact path for Python.h) in the c compiler for lammps. open src/MAKE/Makefile.mpi. Change the CCFLAGS line to something like (you will need to find the <path-to-Python.h> and also find the right <version> of python... hopefully >3): 
+5. include python library (exact path for Python.h) in the c compiler for lammps. open src/MAKE/Makefile.mpi. Change the CCFLAGS line to something like (you will need to find the <path-to-Python.h> and also find the right <version> of python... hopefully >3):
+
+To find Python.h using "locate" linux tool is useful:
+```
+locate Python.h
+```
+
 ```
 CCFLAGS =       -g -O3 -std=c++11 -I<path-to-Python.h> -lpython<version>
 ```
