@@ -20,8 +20,9 @@ generic_file = f"{wd}in.activate-test-3D" # main lammps input file
                                                                                                                                                                                                                                            
 dimension = 3 # spatial dimension                                                                                                                                                                                                          
 bl = 40 # box length                                                                                                                                                                                                                       
-dens = 0.1 # density                                                                                                                                                                                                                       
-Natoms = 400 # number of atoms (will be overwritten by lammps call)                                                                                                                                                                        
+                                                                                                                                                                                                                   
+Natoms = 400 # number of atoms (will be overwritten by lammps call)  
+dens = Natoms/(bl**dimension) # density    
 T = 1.0 # reduced temperature (all units are reduced according to LAMMPS units LJ)                                                                                                                                                         
 dt = 0.004 #timestep                                                                                                                                                                                                                       
 Nruns = 100 # number of total timesteps                                                                                                                                                                                                    
