@@ -9,4 +9,14 @@ I have added a MWE of a simple LJ fluid working with the pylammpsmpi new interfa
 
 An example of a resulting configuration is added to the folder.
 
-At a later date I will write more instructions on this...
+For the pylammpsmpi example you need a working mpi4py and lammps (for python) installed and working correctly. Eg. you should be able to run (in a python script or terminal):
+```
+from lammps import lammps
+from mpi4py import MPI
+```
+
+You also need the pylammpsmpi package installed. You can so using pip:
+
+```
+pip install -U pylammpsmpi
+```
