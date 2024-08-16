@@ -3,7 +3,8 @@ Simple instructions of how I downloaded and installed python interface for LAMMP
 
 There is also an example python code for a basic LAMMPS simulation using the Python interface.
 
-## pylammpsmpi
+
+## pylammpsmpi [Still yet to added to the .pdf, but see below for the main idea to get it working]
 
 I have added a MWE of a simple LJ fluid working with the pylammpsmpi new interface: https://github.com/pyiron/pylammpsmpi/tree/main?tab=readme-ov-file
 
