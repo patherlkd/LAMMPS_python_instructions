@@ -20,3 +20,11 @@ You also need the pylammpsmpi package installed. You can so using pip:
 ```
 pip install -U pylammpsmpi
 ```
+The example also can be used to cupy (a GPU accelerate numpy) whereby numpy commands can be exactly replaced by cupy:
+
+```
+import cupy as cp
+
+a = cp.array([1.,2.])
+```
+For example.
